@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>114-2 學期團隊週會會議紀錄 — 2026/02/24</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --paper: #faf9f6;
+    --accent: #2c5f7c;
+    --accent-light: #e8f0f4;
+    --border: #d4cfc8;
+    --muted: #6b6560;
+    --highlight: #f5efe6;
+    --tag-bg: #eae4d9;
+    --shadow: rgba(30, 30, 50, 0.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: #edebe8;
+    color: var(--ink);
+    line-height: 1.8;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 820px;
+    margin: 40px auto;
+    background: var(--paper);
+    border-radius: 6px;
+    box-shadow: 0 1px 3px var(--shadow), 0 8px 30px var(--shadow);
+    overflow: hidden;
+  }
+
+  /* Header band */
+  .header {
+    background: var(--accent);
+    color: #fff;
+    padding: 48px 56px 40px;
+  }
+  .header h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .header .subtitle {
+    font-size: 14px;
+    opacity: 0.8;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+
+  .content {
+    padding: 40px 56px 56px;
+  }
+
+  /* Meta table */
+  .meta-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 36px;
+    font-size: 14px;
+  }
+  .meta-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .meta-table td:first-child {
+    width: 100px;
+    font-weight: 500;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .meta-table tr:last-child td { border-bottom: none; }
+
+  /* Section headings */
+  h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 40px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  h2 .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px; height: 28px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 13px;
+    font-family: 'Noto Sans TC', sans-serif;
+    flex-shrink: 0;
+  }
+
+  h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 24px 0 10px;
+  }
+
+  p, li { margin-bottom: 8px; }
+
+  ul {
+    padding-left: 22px;
+    margin-bottom: 16px;
+  }
+  ul li {
+    position: relative;
+    padding-left: 4px;
+  }
+  ul li::marker {
+    color: var(--accent);
+  }
+
+  /* Task table */
+  .task-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 13.5px;
+  }
+  .task-table thead th {
+    background: var(--accent);
+    color: #fff;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+  }
+  .task-table thead th:first-child { border-radius: 4px 0 0 0; }
+  .task-table thead th:last-child { border-radius: 0 4px 0 0; }
+  .task-table tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .task-table tbody tr:nth-child(even) { background: var(--highlight); }
+  .task-table tbody tr:hover { background: var(--accent-light); }
+
+  .task-table .group-name { font-weight: 500; white-space: nowrap; }
+  .task-table .members {
+    color: var(--accent);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  /* Todo table */
+  .todo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 13.5px;
+  }
+  .todo-table thead th {
+    background: var(--ink);
+    color: #fff;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 13px;
+  }
+  .todo-table thead th:first-child { border-radius: 4px 0 0 0; }
+  .todo-table thead th:last-child { border-radius: 0 4px 0 0; }
+  .todo-table tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .todo-table tbody tr:nth-child(even) { background: var(--highlight); }
+  .todo-table .person { font-weight: 500; white-space: nowrap; }
+  .todo-table .deadline {
+    color: var(--accent);
+    font-weight: 500;
+    white-space: nowrap;
+    font-size: 12.5px;
+  }
+
+  /* Callout boxes */
+  .callout {
+    background: var(--highlight);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    margin: 16px 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 14px;
+  }
+  .callout strong { color: var(--accent); }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--muted);
+    font-size: 11.5px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-weight: 500;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* Responsive */
+  @media (max-width: 860px) {
+    .page { margin: 0; border-radius: 0; }
+    .header { padding: 32px 28px 28px; }
+    .header h1 { font-size: 22px; }
+    .content { padding: 28px 28px 40px; }
+    .task-table, .todo-table { font-size: 12.5px; }
+    .task-table thead th, .todo-table thead th { font-size: 12px; padding: 8px 8px; }
+    .task-table tbody td, .todo-table tbody td { padding: 8px 8px; }
+  }
+
+  /* Print */
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0; }
+    .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .task-table thead th, .todo-table thead th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="header">
+    <h1>114-2 學期團隊週會會議紀錄</h1>
+    <div class="subtitle">團隊時程排定、分組配置、AI 與裝置管理、期刊投稿規劃</div>
+  </div>
+
+  <div class="content">
+
+    <table class="meta-table">
+      <tr><td>會議日期</td><td>2026 年 2 月 24 日（星期二）</td></tr>
+      <tr><td>會議地點</td><td>桃園校區研究室</td></tr>
+      <tr><td>主持人</td><td>高老師</td></tr>
+      <tr><td>記錄方式</td><td>錄音轉逐字稿整理</td></tr>
+      <tr><td>出席成員</td><td>楊程戎、林詩軒、陳怡安、何宸誼、謝云翔、楊婷安、黃詠歆、李菁煒、唐致翔、陳睿廷等</td></tr>
+      <tr><td>請假成員</td><td>許佳珊、許詠婷、魏智源、吳奕信、王霈婷、何冠德、湯唯靖</td></tr>
+    </table>
+
+    <!-- 一、會議目的 -->
+    <h2><span class="num">1</span>會議目的</h2>
+    <p>新學期開學，召集團隊全體成員，說明本學期的時間規劃、分組配置、任務安排，以及團隊運作模式，讓所有成員（包含今日未到的同學）瞭解後續工作方向。</p>
+
+    <!-- 二、團隊週會時間安排 -->
+    <h2><span class="num">2</span>團隊週會時間安排</h2>
+    <ul>
+      <li>本學期將固定安排一個全體團隊會議時間，希望每週至少碰面一次。</li>
+      <li>會議形式：能實體就實體，不能實體則線上參與。</li>
+      <li>會議內容：每人用 3～5 分鐘簡報本週進度，老師視情況點評或指示後續方向。若有同學的進度值得全體觀摩，會提前通知準備較完整的報告。</li>
+      <li>請所有成員回去整理自己本學期的課表與可用時間，回報給老師，以便統一調配一個大家都可以的時段。</li>
+    </ul>
+
+    <!-- 三、老師行程與聯絡原則 -->
+    <h2><span class="num">3</span>老師行程與聯絡原則</h2>
+
+    <h3>3.1 老師本學期行程概況</h3>
+    <ul>
+      <li>週一晚上固定於基河校區授課，白天可能在臺北安排其他行程，不一定進桃園校區。</li>
+      <li>週四、週五較無固定行程，可彈性安排。</li>
+      <li>週六、日可約，但家庭事務優先，會提前告知。</li>
+    </ul>
+
+    <h3>3.2 聯絡方式</h3>
+    <ul>
+      <li>老師習慣以電話溝通較清楚，但若收到訊息能即時理解、回覆確認，不一定要通電話。</li>
+      <li>請各組成員讓老師知道方便聯絡的時間，老師會盡量在該時段聯繫。</li>
+      <li>如遇緊急事項，老師可能無法配合大家方便時間，請見諒。</li>
+    </ul>
+
+    <!-- 四、分組配置與任務分工 -->
+    <h2><span class="num">4</span>分組配置與任務分工</h2>
+
+    <h3>4.1 各任務組成員與工作方向</h3>
+    <p>以下為本學期團隊任務分組及各組主要工作方向（一人可能隸屬多個任務組）：</p>
+
+    <table class="task-table">
+      <thead>
+        <tr><th>任務組別</th><th>成員</th><th>主要任務</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="group-name">醫療大數據（CGRD/NHIRD）</td>
+          <td class="members">許詠婷、許佳珊</td>
+          <td>CGRD/NHIRD 相關研究案件（AF、Lipo(a) 等）。唐致翔交接工作由許詠婷與許佳珊各自承接。基河校區有課，需彈性配合。</td>
+        </tr>
+        <tr>
+          <td class="group-name">中醫大合作（TWB/中醫體質）</td>
+          <td class="members">陳睿廷、陳怡安、何宸誼</td>
+          <td>陳睿廷負責完成 TWB 中醫動態體質研究 R Shiny 儀錶板開發，陳怡安與何宸誼支援。</td>
+        </tr>
+        <tr>
+          <td class="group-name">AI 工具學習與整理</td>
+          <td class="members">楊程戎、林詩軒</td>
+          <td>系統性收集整理團隊使用的 AI 工具（ChatGPT、Claude、NotebookLM 等），建立比較表與應用場景。</td>
+        </tr>
+        <tr>
+          <td class="group-name">老師電腦設備管理</td>
+          <td class="members">楊程戎<span class="tag">林詩軒協助</span></td>
+          <td>唐致翔盤點完成後，原則上由楊程戎協助管理老師電腦與設備，必要時請林詩軒協助。</td>
+        </tr>
+        <tr>
+          <td class="group-name">棒球數據分析</td>
+          <td class="members">謝云翔</td>
+          <td>大專生國科會研究計畫，將逐球資料撰寫為可發表論文的分析成果。</td>
+        </tr>
+        <tr>
+          <td class="group-name">教學實踐研究</td>
+          <td class="members">謝云翔、王霈婷</td>
+          <td>AI 融入多變量資料分析課程。</td>
+        </tr>
+        <tr>
+          <td class="group-name">產學合作（影像辨識）</td>
+          <td class="members">謝云翔、涂閔哲<span class="tag">畢業生</span></td>
+          <td>文件翻譯、影像研究、RAG 相關。涂閔哲已畢業持續協助，謝云翔接手推進。</td>
+        </tr>
+        <tr>
+          <td class="group-name">HINTS 資料庫</td>
+          <td class="members">魏智源</td>
+          <td>HINTS 資料庫計算與分析。基河校區有課，需彈性配合。</td>
+        </tr>
+        <tr>
+          <td class="group-name">學院聊天機器人</td>
+          <td class="members">何冠德、陳家瑋<span class="tag">畢業生</span></td>
+          <td>學院 AI 聊天機器人持續開發中（競爭型計畫）。</td>
+        </tr>
+        <tr>
+          <td class="group-name">SDA 模擬研究</td>
+          <td class="members">吳奕信</td>
+          <td>大專生國科會 SDA 計畫已結束，後續將討論是否協助跑 SDA 模擬結果。</td>
+        </tr>
+        <tr>
+          <td class="group-name">大專生計畫（健保大數據）</td>
+          <td class="members">楊婷安、黃詠歆</td>
+          <td>大專生國科會研究計畫，題目方向與許詠婷接近，由許詠婷帶領教學。meeting 時間另行安排。</td>
+        </tr>
+        <tr>
+          <td class="group-name">醫療影像分析</td>
+          <td class="members">唐致翔<span class="tag">畢業生</span></td>
+          <td>醫療影像合作案。已錄取研發替代役（疾管署），畢業後繼續協助。</td>
+        </tr>
+        <tr>
+          <td class="group-name">技術支援</td>
+          <td class="members">陳家瑋<span class="tag">畢業生</span></td>
+          <td>資訊設備技術支援與諮詢。</td>
+        </tr>
+        <tr>
+          <td class="group-name">行政支援</td>
+          <td class="members">李菁煒、湯唯靖</td>
+          <td>李菁煒：期刊投稿注意事項整理、外部案件協調、資料掃描建檔。湯唯靖：結案行政、核銷等校內行政事務。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>4.2 主線與支線任務說明</h3>
+    <div class="callout">
+      <strong>主線任務：</strong>掛有計畫或搭配特定需求，最終一定要看到成果。老師會積極追蹤進度。<br>
+      <strong>支線任務：</strong>以學習為目的，可能是別人的主線任務讓你參與學習。壓力較小，但仍需投入。
+    </div>
+    <p>每位成員的主線與支線任務將隨後續安排逐步明確化。</p>
+
+    <!-- 五、AI 應用與學習方向 -->
+    <h2><span class="num">5</span>AI 應用與學習方向</h2>
+    <ul>
+      <li>老師於寒假期間測試發現：直接讓 AI 讀取資料後，已可完成資料分析並產出報告。</li>
+      <li>未來決勝點不在「操作」本身，而在於是否有能力正確下達指令給 AI、以及在公司安全政策限制下仍能獨立執行分析。</li>
+      <li>因此，學習統計方法與資料分析的基礎仍然非常重要，這是駕馭 AI 工具的前提。</li>
+      <li>大二同學（楊程戎、林詩軒）將負責 AI 工具（如 ChatGPT、Claude、NotebookLM 等）的資料收集與應用探索。</li>
+    </ul>
+
+    <!-- 六、裝置管理與期刊投稿 -->
+    <h2><span class="num">6</span>裝置管理與期刊投稿</h2>
+    <ul>
+      <li>唐致翔負責盤點目前團隊手邊的裝置清單（電腦、設備等），確認後交由大二同學協助管理。</li>
+      <li>李菁煒協助整理期刊投稿相關的行政流程與注意事項（含英文期刊），類似先前申請 R&D 的模式。</li>
+    </ul>
+
+    <!-- 七、職涯發展提醒 -->
+    <h2><span class="num">7</span>職涯發展提醒</h2>
+    <p>老師特別提醒，作為應用統計與資料科學系的學生，核心競爭力在於「統計與資料分析」的能力，而非去和其他專業領域的人比拼該領域的知識。以謝云翔的經驗為例：</p>
+    <ul>
+      <li>應以「我如何用統計和資料分析幫助你的領域做得更好」作為定位。</li>
+      <li>在校期間累積的專案經驗是就業的重要資產。唐致翔錄取研發替代役（疾管署）、涂閔哲畢業即被延攬回去工作，都是例證。</li>
+      <li>鼓勵大家「以終為始」：思考未來想做什麼，倒推現在該學什麼，再與老師討論如何規劃。</li>
+    </ul>
+
+    <!-- 八、待辦事項 -->
+    <h2><span class="num">8</span>待辦事項總整理</h2>
+
+    <table class="todo-table">
+      <thead>
+        <tr><th>負責人</th><th>待辦事項</th><th>時限</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="person">全體成員</td><td>整理本學期課表與可用時間，回報老師</td><td class="deadline">本週內</td></tr>
+        <tr><td class="person">全體成員</td><td>讓老師知道方便聯絡的時間段</td><td class="deadline">本週內</td></tr>
+        <tr><td class="person">唐致翔</td><td>盤點團隊裝置清單並完成交接；持續協助醫療影像分析</td><td class="deadline">盡速</td></tr>
+        <tr><td class="person">涂閔哲</td><td>持續協助產學合作（影像辨識）相關研究</td><td class="deadline">持續進行</td></tr>
+        <tr><td class="person">楊程戎、林詩軒</td><td>規劃 AI 工具學習與裝置管理的進行方式（固定時間或非同步）</td><td class="deadline">開學後盡速</td></tr>
+        <tr><td class="person">謝云翔</td><td>確認課表；持續推進棒球論文化、教學實踐研究、產學合作；向老師提出畢業後續規劃</td><td class="deadline">本週內</td></tr>
+        <tr><td class="person">陳怡安、何宸誼</td><td>思考想學習的方法與未來方向，與老師討論</td><td class="deadline">近期</td></tr>
+        <tr><td class="person">楊婷安、黃詠歆</td><td>跟許詠婷學習，meeting 時間另行安排</td><td class="deadline">待協調</td></tr>
+        <tr><td class="person">李菁煒</td><td>整理老師寒假資料、掃描建檔、查詢期刊投稿注意事項</td><td class="deadline">即日起</td></tr>
+        <tr><td class="person">許詠婷</td><td>帶領楊婷安、黃詠歆的學習；承接唐致翔研究案件</td><td class="deadline">持續進行</td></tr>
+        <tr><td class="person">魏智源</td><td>回報課表與可用時間，持續推進 HINTS 資料庫分析</td><td class="deadline">本週內</td></tr>
+        <tr><td class="person">何冠德</td><td>持續開發學院 AI 聊天機器人，回報進度</td><td class="deadline">持續進行</td></tr>
+        <tr><td class="person">陳家瑋</td><td>協助聊天機器人開發與技術支援</td><td class="deadline">持續進行</td></tr>
+        <tr><td class="person">吳奕信</td><td>與老師討論後續 SDA 計畫，嘗試跑模擬結果</td><td class="deadline">近期</td></tr>
+        <tr><td class="person">陳睿廷</td><td>整理好 TWB 資料庫的 R Shiny 儀錶板</td><td class="deadline">持續推進</td></tr>
+        <tr><td class="person">湯唯靖</td><td>協助結案行政、核銷等事務</td><td class="deadline">持續進行</td></tr>
+      </tbody>
+    </table>
+
+    <div class="footer">
+      <strong>備註：</strong>本紀錄由會議錄音轉逐字稿後整理而成，供未出席同學參閱。如有任何問題或需要補充，請直接聯繫老師。
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

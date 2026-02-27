@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>114-2 學期 團隊週會紀錄</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --paper: #faf9f6;
+    --accent: #2c5f7c;
+    --accent-light: #e8f0f4;
+    --border: #d4cfc8;
+    --muted: #6b6560;
+    --highlight: #f5efe6;
+    --shadow: rgba(30, 30, 50, 0.06);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: #edebe8;
+    color: var(--ink);
+    line-height: 1.8;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 680px;
+    margin: 60px auto;
+    background: var(--paper);
+    border-radius: 6px;
+    box-shadow: 0 1px 3px var(--shadow), 0 8px 30px var(--shadow);
+    overflow: hidden;
+  }
+  .header {
+    background: var(--accent);
+    color: #fff;
+    padding: 48px 48px 40px;
+    text-align: center;
+  }
+  .header h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .header .subtitle {
+    font-size: 14px;
+    opacity: 0.75;
+    font-weight: 300;
+  }
+  .content {
+    padding: 40px 48px 52px;
+  }
+  .meeting-list {
+    list-style: none;
+  }
+  .meeting-list li {
+    border-bottom: 1px solid var(--border);
+  }
+  .meeting-list li:last-child {
+    border-bottom: none;
+  }
+  .meeting-list a {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 16px;
+    text-decoration: none;
+    color: var(--ink);
+    border-radius: 6px;
+    transition: background 0.15s;
+  }
+  .meeting-list a:hover {
+    background: var(--accent-light);
+  }
+  .date-badge {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+  }
+  .date-badge .month {
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .date-badge .day {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .meeting-info h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .meeting-info p {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0;
+  }
+  .arrow {
+    margin-left: auto;
+    color: var(--accent);
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .empty {
+    text-align: center;
+    color: var(--muted);
+    padding: 40px 0;
+    font-size: 14px;
+  }
+  .footer {
+    text-align: center;
+    padding: 20px 48px 32px;
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  @media (max-width: 720px) {
+    .page { margin: 0; border-radius: 0; min-height: 100vh; }
+    .header { padding: 36px 28px 32px; }
+    .header h1 { font-size: 22px; }
+    .content { padding: 28px 24px 40px; }
+    .meeting-list a { padding: 16px 8px; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="header">
+    <h1>114-2 學期 團隊週會紀錄</h1>
+    <div class="subtitle">高老師研究團隊</div>
+  </div>
+
+  <div class="content">
+    <ul class="meeting-list">
+
+      <li>
+        <a href="0224.html">
+          <div class="date-badge">
+            <span class="month">FEB</span>
+            <span class="day">24</span>
+          </div>
+          <div class="meeting-info">
+            <h3>學期首次週會</h3>
+            <p>團隊時程排定、分組配置、AI 與裝置管理、期刊投稿規劃</p>
+          </div>
+          <span class="arrow">›</span>
+        </a>
+      </li>
+
+      <!-- 之後新增會議，複製下面這段，改日期、檔名、標題即可 -->
+      <!--
+      <li>
+        <a href="0303.html">
+          <div class="date-badge">
+            <span class="month">MAR</span>
+            <span class="day">03</span>
+          </div>
+          <div class="meeting-info">
+            <h3>第二次週會</h3>
+            <p>主題摘要寫在這裡</p>
+          </div>
+          <span class="arrow">›</span>
+        </a>
+      </li>
+      -->
+
+    </ul>
+  </div>
+
+  <div class="footer">
+    銘傳大學 應用統計與資料科學學系
+  </div>
+</div>
+
+</body>
+</html>
