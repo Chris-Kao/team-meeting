@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>114-2 週會紀錄 — 2026/03/06 AI 輔助開發與實驗室協作模式</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --paper: #faf9f6;
+    --accent: #2c5f7c;
+    --accent-light: #e8f0f4;
+    --border: #d4cfc8;
+    --muted: #6b6560;
+    --highlight: #f5efe6;
+    --tag-bg: #eae4d9;
+    --shadow: rgba(30, 30, 50, 0.06);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: #edebe8;
+    color: var(--ink);
+    line-height: 1.8;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 820px;
+    margin: 40px auto;
+    background: var(--paper);
+    border-radius: 6px;
+    box-shadow: 0 1px 3px var(--shadow), 0 8px 30px var(--shadow);
+    overflow: hidden;
+  }
+  .header {
+    background: var(--accent);
+    color: #fff;
+    padding: 48px 56px 40px;
+  }
+  .header h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .header .subtitle {
+    font-size: 14px;
+    opacity: 0.8;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+  .back-link {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 13px;
+    opacity: 0.8;
+    color: #fff;
+    text-decoration: none;
+  }
+  .back-link:hover { opacity: 1; text-decoration: underline; }
+  .content { padding: 40px 56px 56px; }
+
+  .meta-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 36px;
+    font-size: 14px;
+  }
+  .meta-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .meta-table td:first-child {
+    width: 100px;
+    font-weight: 500;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .meta-table tr:last-child td { border-bottom: none; }
+
+  h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 40px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  h2 .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px; height: 28px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 13px;
+    font-family: 'Noto Sans TC', sans-serif;
+    flex-shrink: 0;
+  }
+  h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 24px 0 10px;
+  }
+  p, li { margin-bottom: 8px; }
+  ul {
+    padding-left: 22px;
+    margin-bottom: 16px;
+  }
+  ul li::marker { color: var(--accent); }
+  ol {
+    padding-left: 22px;
+    margin-bottom: 16px;
+  }
+  ol li::marker { color: var(--accent); font-weight: 500; }
+
+  .callout {
+    background: var(--highlight);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    margin: 16px 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 14px;
+  }
+  .callout strong { color: var(--accent); }
+
+  .topic-card {
+    background: var(--highlight);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+  .topic-card h3 {
+    margin: 0 0 12px;
+    color: var(--accent);
+    font-size: 16px;
+  }
+  .topic-card ul, .topic-card ol { margin-bottom: 8px; }
+  .topic-card p:last-child, .topic-card ul:last-child, .topic-card ol:last-child { margin-bottom: 0; }
+
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--muted);
+    font-size: 11.5px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-weight: 500;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+
+  .todo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 13.5px;
+  }
+  .todo-table thead th {
+    background: var(--ink);
+    color: #fff;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 13px;
+  }
+  .todo-table thead th:first-child { border-radius: 4px 0 0 0; }
+  .todo-table thead th:last-child { border-radius: 0 4px 0 0; }
+  .todo-table tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .todo-table tbody tr:nth-child(even) { background: var(--highlight); }
+  .todo-table .person { font-weight: 500; white-space: nowrap; }
+
+  .follow-up {
+    counter-reset: follow;
+    list-style: none;
+    padding-left: 0;
+  }
+  .follow-up li {
+    counter-increment: follow;
+    padding-left: 28px;
+    position: relative;
+    margin-bottom: 10px;
+  }
+  .follow-up li::before {
+    content: counter(follow);
+    position: absolute;
+    left: 0;
+    width: 20px; height: 20px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 4px;
+  }
+
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* Responsive */
+  @media (max-width: 860px) {
+    .page { margin: 0; border-radius: 0; }
+    .header { padding: 32px 24px 28px; }
+    .header h1 { font-size: 21px; }
+    .content { padding: 24px 20px 36px; }
+    h2 { font-size: 17px; }
+    h3 { font-size: 14px; }
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 16px -20px 24px;
+      padding: 0 20px;
+    }
+    .todo-table { font-size: 12.5px; min-width: 480px; }
+    .todo-table thead th { font-size: 12px; padding: 8px 10px; }
+    .todo-table tbody td { padding: 8px 10px; }
+    .todo-table .person { white-space: normal; }
+    .meta-table td { padding: 8px 10px; font-size: 13.5px; }
+    .meta-table td:first-child { width: 80px; }
+    .topic-card { padding: 16px 18px; }
+    .callout { margin: 12px 0; padding: 12px 14px; font-size: 13.5px; }
+    .footer { font-size: 12.5px; }
+  }
+  @media (max-width: 420px) {
+    .header { padding: 28px 18px 24px; }
+    .header h1 { font-size: 19px; }
+    .header .subtitle { font-size: 12.5px; }
+    .content { padding: 20px 16px 32px; }
+    body { font-size: 14px; }
+    h2 { font-size: 16px; gap: 6px; }
+    h2 .num { width: 24px; height: 24px; font-size: 11px; }
+    ul, ol { padding-left: 18px; }
+    .table-wrap { margin: 12px -16px 20px; padding: 0 16px; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0; }
+    .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .todo-table thead th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="header">
+    <a href="index.html" class="back-link">← 回到會議紀錄目錄</a>
+    <h1>AI 輔助開發與實驗室協作模式</h1>
+    <div class="subtitle">114-2 學期團隊週會紀錄</div>
+  </div>
+
+  <div class="content">
+
+    <table class="meta-table">
+      <tr><td>會議日期</td><td>2026 年 3 月 6 日（星期五）</td></tr>
+      <tr><td>會議時間</td><td>約 12:00–12:45</td></tr>
+      <tr><td>主持人</td><td>高老師</td></tr>
+      <tr><td>會議形式</td><td>實體＋線上同步（Google Meet）</td></tr>
+      <tr><td>現場出席</td><td>許詠婷、楊婷安、黃詠歆、何宸誼、陳睿廷、謝云翔、陳怡安</td></tr>
+      <tr><td>線上出席</td><td>唐致翔、楊程戎、王霈婷、李菁煒、涂閔哲</td></tr>
+      <tr><td>請假</td><td>魏智源</td></tr>
+    </table>
+
+    <!-- 主題一 -->
+    <h2><span class="num">1</span>時間管理系統介紹與 Demo</h2>
+
+    <p>高老師說明本學期師生協作將採「實體＋線上同步」模式，不再完全依賴實體會面。為配合此模式，老師利用 AI（ChatGPT / Claude）自行開發了一套基於 Google Apps Script 的<strong>時間管理系統</strong>，讓學生每週預填下週可用時間。</p>
+
+    <div class="topic-card">
+      <h3>系統運作方式</h3>
+      <ul>
+        <li>學生透過學號登入，填寫下週各時段的可用狀態（如「可開會」「可到系上」等）。</li>
+        <li>老師端可總覽所有學生的時間，據此主動聯繫安排討論。</li>
+        <li>時間以「週」為單位更新，預計每週二左右開放填寫下週時間。</li>
+        <li>老師會依據學生填寫的時間彈性安排，不會綁死固定時段；若時間無法配合，會個別協調。</li>
+      </ul>
+    </div>
+
+    <div class="topic-card">
+      <h3>系統使用回饋與修正</h3>
+      <ul>
+        <li>詠婷曾回報「填寫後無法看到已填內容」的 bug，云翔先前也私下反映過類似問題。老師確認為系統性問題後已修正。</li>
+        <li>詠婷另回報系統速度慢，老師與 AI 討論後調整程式碼，經詠婷測試確認已改善。</li>
+        <li>老師鼓勵所有人在使用過程中發現問題或有建議，直接在群組回饋，不要擔心問題太小或怕問笨問題。</li>
+      </ul>
+    </div>
+
+    <!-- 主題二 -->
+    <h2><span class="num">2</span>任務追蹤系統介紹與 Demo</h2>
+
+    <p>老師另開發了一套<strong>任務追蹤系統</strong>，同樣基於 Google Apps Script，目的是解決以往在 LINE 多群組交辦任務後難以追蹤的問題。</p>
+
+    <div class="topic-card">
+      <h3>系統功能</h3>
+      <ul>
+        <li>老師可在系統上建立任務並指派給特定學生，學生可在對應任務下留言回報進度，形成討論串。</li>
+        <li>類似過去在 Google 文件上用留言互動的方式，但集中管理、不易遺漏。</li>
+        <li>後端以 Google 試算表儲存資料。</li>
+      </ul>
+    </div>
+
+    <div class="topic-card">
+      <h3>後續規劃</h3>
+      <ul>
+        <li>老師計畫增加「每日自動提醒」功能，透過 Email 推送通知學生待辦任務。</li>
+        <li>通知功能尚在評估中，因部分主動性強的學生可能不需要頻繁提醒，需拿捏避免擾民。</li>
+        <li>通知將寄送至學生在系統中填寫的 Email，建議填寫工作時常收信的信箱。</li>
+      </ul>
+    </div>
+
+    <!-- 主題三 -->
+    <h2><span class="num">3</span>Vibe Coding 與 AI 輔助開發經驗分享</h2>
+
+    <p>老師以自己開發上述兩套系統的過程為例，向團隊介紹「vibe coding」的概念——透過自然語言對話讓 AI 生成程式碼與系統。</p>
+
+    <div class="topic-card">
+      <h3>關鍵經驗</h3>
+      <ul>
+        <li>老師實際展示了與 AI 的對話紀錄，說明如何從需求描述開始，逐步與 AI 討論方案、架構、前後端設計，最終產出可用系統。</li>
+        <li>開發第二個系統時，老師先將第一個系統的開發經驗摘要後提供給 AI，使其沿用類似架構，提升效率。此做法也適用於學生的 AI 使用：<strong>從每次對話中總結經驗，作為下次對話的基礎</strong>。</li>
+        <li>老師引用去年 AI 年會案例：一位八歲小孩用聊天方式開發出記帳 APP，強調重點在於「能否清楚表達想法」，而非程式能力。</li>
+        <li>鼓勵系上學生（尤其乙班大數據組有前後端基礎的同學）善用此方式，比完全不懂程式的人更有優勢。</li>
+      </ul>
+    </div>
+
+    <!-- 主題四 -->
+    <h2><span class="num">4</span>AI 輔助文獻閱讀流程</h2>
+
+    <p>老師說明正在與宸誼合作測試的一套 <strong>AI 輔助文獻閱讀模式</strong>，用於未來研究團隊的論文閱讀。</p>
+
+    <div class="topic-card">
+      <h3>流程概述</h3>
+      <ol>
+        <li>老師撰寫一份提示詞（prompt），指示 AI 拆解論文。</li>
+        <li>將論文 PDF 與提示詞一起輸入 AI，產出論文摘要與全文內容。</li>
+        <li>全文轉為 Markdown 格式保存，原因有二：Markdown 是與 AI 溝通效率最高的格式；且比 PDF 或 Word 節省 token 用量。</li>
+        <li>提示詞中指定先用 Python 提取 PDF 內容（比 AI 直接用電腦視覺掃描更省算力），再由 AI 進行後續分析。</li>
+        <li>產出結果中包含需學生確認的「延伸分析」段落，學生在檢查 AI 分析是否正確的過程中，實質上也完成了論文閱讀。</li>
+      </ol>
+    </div>
+
+    <div class="callout">
+      <strong>歷史脈絡：</strong>類似構想最早在兩年前由洪培升與湯于葳協助嘗試，當時 ChatGPT 效果不佳；現在 AI 能力已大幅提升，流程可行性顯著提高。
+    </div>
+
+    <!-- 主題五 -->
+    <h2><span class="num">5</span>AI 資訊追蹤與團隊協作</h2>
+
+    <p>老師表示 AI 領域發展快速（迭代週期從一年縮短到一季），個人時間有限，希望團隊協助追蹤新趨勢。</p>
+
+    <ul>
+      <li><strong>合作模式：</strong>老師看到新概念或名詞時，先讓 AI 產出初步報告，再請學生進一步整理心得與觀點，回來與老師討論。此任務為各人主線專案之外的額外工作。</li>
+      <li><strong>AI 工具方面：</strong>老師會持續付費購買 AI 工具供團隊使用（如過去購買 ChatGPT 付費版給學生），讓大家能接觸不同工具，跟上趨勢。</li>
+    </ul>
+
+    <!-- 任務交辦 -->
+    <h2><span class="num">6</span>會議中任務交辦</h2>
+
+    <div class="table-wrap">
+    <table class="todo-table">
+      <thead>
+        <tr><th>對象</th><th>事項</th><th>備註</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="person">全體成員</td><td>每週在時間管理系統填寫下週可用時段</td><td>建議前一週的週二前完成填寫</td></tr>
+        <tr><td class="person">全體成員</td><td>使用過程中如有 bug 或建議，在群組回饋</td><td>包含時間系統與任務追蹤系統</td></tr>
+        <tr><td class="person">全體成員</td><td>開始使用任務追蹤系統</td><td>系統連結會後傳至群組</td></tr>
+        <tr><td class="person">宸誼</td><td>持續優化 AI 輔助文獻閱讀流程</td><td>檢查 AI 解析結果的準確度，協助改進提示詞</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <!-- 下次追蹤 -->
+    <h2><span class="num">7</span>下次追蹤事項</h2>
+
+    <ul class="follow-up">
+      <li><strong>時間管理系統：</strong>確認全體成員皆完成首次填寫，收集使用回饋。</li>
+      <li><strong>任務追蹤系統：</strong>確認系統連結已發布至群組，追蹤成員使用狀況。</li>
+      <li><strong>Email 通知功能：</strong>老師評估是否開發任務系統的自動通知推送功能。</li>
+      <li><strong>AI 文獻閱讀流程：</strong>宸誼持續測試並回報流程優化結果。</li>
+      <li><strong>Google Meet 錄影權限：</strong>本次會議因學校 Google Workspace 未開放錄製功能而無法錄影，需聯繫資網處申請管理員權限升級，或研究替代方案（如 Teams、螢幕錄影工具）。</li>
+      <li><strong>會議內容補錄：</strong>老師計畫自行重新錄製一次本次會議內容，供請假成員觀看。</li>
+    </ul>
+
+    <div class="footer">
+      <strong>備註：</strong>本紀錄由會議內容整理而成，供未出席同學參閱。如有任何問題或需要補充，請直接聯繫老師。
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
